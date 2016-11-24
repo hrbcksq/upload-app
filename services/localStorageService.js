@@ -7,16 +7,20 @@ var tempdir = os.tmpdir();
 var create = function(req, maxSize) {
     var form = new formidable.IncomingForm();
     form.uploadDir = tempdir;
-    form.keepExtensions = true;
+    form.keepExtensions = true;    
     return new Promise((resolve, reject) => {
         form.parse(req, function(err, fields, files) {                        
             if (err) {
                reject(err);        
-            } else 
-            if (files.file.size === 0 || files.file.size > maxSize*1000) {
-                reject(new Error('File is empty or too big')); 
-            } else {
-                resolve(files.file.path);
+            } 
+            if (files.file.size === 0) {
+               reject(new Error('File is empty')); 
+            }
+            if (files.file.size > maxSize*1000) {
+               reject(new Error(`File must be less than ${maxSize}kb, thumbs not implemented;(`));
+            } 
+            else {
+               resolve(files.file.path);
             }
         });                  
      });

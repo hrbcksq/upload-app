@@ -445,6 +445,13 @@ body {
   color: orangered;
 }
 
+.alert.file-info {
+  display: inline-block;
+  color: limegreen;
+}
+
+
+
 /*img.image {
   width: 320px;
   height: 320px;

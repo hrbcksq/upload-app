@@ -15,6 +15,7 @@ router.get('/:id', authorized(), function(req, res) {
 router.post('/', authorized(), function(req, res) {
     storageService.upload(req, req.user.id, config.maxImageSize)
         .then(() => {
+            req.flash('info', 'Success!');
             res.redirect('/');
         })
         .catch((err) => {

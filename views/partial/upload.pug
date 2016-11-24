@@ -4,5 +4,7 @@ form.form-inline.file-upload-form(method='post', action='/image/', enctype='mult
     input.btn.btn-primary(type='submit', value='submit')
     if (errors && errors.length)  
         .alert.file-error !{errors[0]}
+    if (info && info.length)  
+        .alert.file-info !{info[0]}
 
 

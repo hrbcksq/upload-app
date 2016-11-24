@@ -16,7 +16,8 @@ router.get('/', authorized('/placeholder'), function(req, res) {
         title: 'Dashboard', 
         user: req.user,
         images: images.map(item => item._id.toString()),        
-        errors: req.flash('error')     
+        errors: req.flash('error'),
+        info: req.flash('info'),
       });      
   });  
 });
