@@ -4,7 +4,7 @@ var os = require('os');
 
 var tempdir = os.tmpdir();
 
-var create = function(req) {
+var create = function(req, maxSize) {
     var form = new formidable.IncomingForm();
     form.uploadDir = tempdir;
     form.keepExtensions = true;
@@ -13,8 +13,8 @@ var create = function(req) {
             if (err) {
                reject(err);        
             } else 
-            if (files.file.size === 0) {
-               reject(new Error('File is empty')); 
+            if (files.file.size === 0 || files.file.size > maxSize) {
+                reject(new Error('File is empty or too big')); 
             } else {
                 resolve(files.file.path);
             }

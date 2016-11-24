@@ -32,8 +32,10 @@ var gfs = grid(connection.db);
 
 var saveStreamToDb = function(stream, userId) {
     var writeStream = gfs.createWriteStream({
-        metadata: {userId: userId},
-        thumb: true
+        metadata: {
+            userId: userId
+            // thumb: true
+        }        
     });
     return new Promise((resolve, reject) => {
         stream.pipe(writeStream)
@@ -42,9 +44,9 @@ var saveStreamToDb = function(stream, userId) {
     });
 }
 
-var uploadImage = function(req, userId) {
+var uploadImage = function(req, userId, maxSize) {
     return new Promise((resolve, reject) => { 
-            localStorage.create(req)
+            localStorage.create(req, maxSize)
                 .then(tempFilePath => saveStreamToDb(fs.createReadStream(tempFilePath), userId)
                     .then(() => tempFilePath)
                 )

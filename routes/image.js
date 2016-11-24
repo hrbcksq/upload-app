@@ -4,6 +4,8 @@ var router = express.Router();
 var authorized = require('../middleware/authorized');
 var storageService = require('../services/storageService');
 
+var config = require('../config');
+
 /* GET image. */ 
 router.get('/:id', authorized(), function(req, res) {
     storageService.get(req.params.id).pipe(res);
@@ -11,7 +13,7 @@ router.get('/:id', authorized(), function(req, res) {
 
 /* POST image. */
 router.post('/', authorized(), function(req, res) {
-    storageService.upload(req, req.user.id)
+    storageService.upload(req, req.user.id, config.maxImageSize)
         .then(() => {
             res.redirect('/');
         })

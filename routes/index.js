@@ -5,7 +5,7 @@ var formidable = require('formidable');
 var authorized = require('../middleware/authorized');
 var storageService = require('../services/storageService');
 
-const pageSize = 20;
+const pageSize = require('../config').pageSize;
 
 /* GET home page. */
 router.get('/', authorized('/placeholder'), function(req, res) {
