@@ -1,0 +1,5 @@
+if (error)  
+    .alert !{error}
+if (errors && errors.length)
+    each error in errors
+        .alert !{error.msg} 

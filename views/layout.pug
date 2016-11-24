@@ -1,0 +1,26 @@
+- var authenticated = user
+
+doctype html
+html
+  head
+    title= title    
+    link(rel='stylesheet', href='/bower_components/bootstrap/css/bootstrap.css')    
+    link(rel='stylesheet', href='/stylesheets/creative.css')
+  body          
+    nav#mainNav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header          
+          a.navbar-brand(href='/') Upload app
+          if authenticated
+            include partial/upload.pug
+        ul.nav.navbar-nav.navbar-right
+          if authenticated
+            li
+              a(href='login/logout') Log out
+            
+    block content     
+      script(src='/bower_components/jquery/jquery.js')
+      script(src='/bower_components/bootstrap/js/bootstrap.js')      
+
+    

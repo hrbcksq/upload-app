@@ -1,0 +1,8 @@
+form.form-inline.file-upload-form(method='post', action='/image/', enctype='multipart/form-data')
+    .form-group       
+        input.form-control.file-input.btn(type='file', id='file', name='file', accept=".jpg, .png, .jpeg, .gif")
+    input.btn.btn-primary(type='submit', value='submit')
+    if (errors && errors.length)  
+        .alert.file-error !{errors[0]}
+
+

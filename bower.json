@@ -1,0 +1,21 @@
+{
+  "name": "insta",
+  "description": "",
+  "main": "",
+  "authors": [
+    "hrbcksq <hrbcksq@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "freewall": "^1.0.6"
+  }
+}

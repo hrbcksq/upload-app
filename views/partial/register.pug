@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    header
+      .header-content
+        link(rel='stylesheet', href='/stylesheets/signin.css')    
+        .container
+        form.form-signin(method='post', action='/register')
+            h2.form-signin-heading 
+              | #{title ? title : 'Create an account'}            
+            label.sr-only(for='inputEmail') Username
+            input#inputUsername.form-control(type='text', name='username' placeholder='Username', required='', autofocus='', minlendth='5')
+            label.sr-only(for='inputPassword') Password
+            input#inputPassword.form-control(type='password', name='password', placeholder='Password', required='', minlendth='5')
+            label.sr-only(for='inputPasswordConfirm') Confirm password
+            input#inputPasswordConfirm.form-control(type='password', name='password2', placeholder='Password confirm', required='', minlendth='5')
+            include errors.pug
+            button.btn.btn-lg.btn-primary.btn-block(type='submit') Register
+            label
+              a(href='/login') or login
+            
+        

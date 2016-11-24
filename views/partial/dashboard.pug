@@ -1,0 +1,16 @@
+extends ../layout
+
+block content  
+  link(ref='/stylesheets/jquery.magnific-popup.css')  
+  script(src='/bower_components/jquery/jquery.js')
+  section#portfolio.no-padding
+    #freewall
+      if images
+        each image in images
+          //- .image-uploaded= '/image/' + image
+          img.image-uploaded(src='/image/' + image, alt='')                  
+                  
+  //- script(src='/javascripts/magnific-popup/jquery.magnific-popup.js')
+  script(src='/bower_components/freewall/freewall.js')
+  script(src='/javascripts/creative.js')
+
