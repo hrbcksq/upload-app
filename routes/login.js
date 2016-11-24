@@ -6,7 +6,7 @@ var authService = require('../services/authService');
 
 // login region
 router.get('/', function(req, res) {
-    res.render('partial/login', { title: 'Please log in', error : req.flash('error') });
+    res.render('login', { title: 'Please log in', error : req.flash('error') });
 });
 
 router.post('/', authenticate, function(req, res, next){

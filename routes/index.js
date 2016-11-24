@@ -12,7 +12,7 @@ router.get('/', authorized('/placeholder'), function(req, res) {
   var page = req.params.page || 0;
   storageService.select(req.user.id, pageSize, pageSize * page)
     .then((images) => {          
-      res.render('partial/dashboard', {
+      res.render('dashboard', {
         title: 'Dashboard', 
         user: req.user,
         images: images.map(item => item._id.toString()),        
@@ -23,7 +23,7 @@ router.get('/', authorized('/placeholder'), function(req, res) {
 
 /* GET placeholder. */
 router.get('/placeholder', function(req, res) {
-  res.render('partial/index', { title: 'Index', user: req.user });    
+  res.render('index', { title: 'Index', user: req.user });    
 });
 
 module.exports = router;

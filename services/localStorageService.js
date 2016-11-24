@@ -13,7 +13,7 @@ var create = function(req, maxSize) {
             if (err) {
                reject(err);        
             } else 
-            if (files.file.size === 0 || files.file.size > maxSize) {
+            if (files.file.size === 0 || files.file.size > maxSize*1000) {
                 reject(new Error('File is empty or too big')); 
             } else {
                 resolve(files.file.path);

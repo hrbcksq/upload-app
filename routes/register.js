@@ -5,7 +5,7 @@ var authService = require('../services/authService');
 var validationMinLength = 5;
 
 router.get('/', function(req, res, next) {
-  res.render('partial/register');
+  res.render('register');
 });
 
 router.post('/', function(req, res, next) {
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
   var errors = req.validationErrors();
 
   if (errors) {
-    res.render('partial/register', { errors : errors });
+    res.render('register', { errors : errors });
   } else {
     authService.register(username, password)
     .then((user) => authService.authenticate(req, res))    
@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
       res.redirect('/')
     })    
     .catch((err) => {
-      res.render('partial/register', { error : err.message })
+      res.render('register', { error : err.message })
     });
   }    
 });
