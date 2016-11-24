@@ -1,3 +1,10 @@
+# Todo
+
+* Image thumbs
+* Paging
+* Complete freewall
+* Unit testing
+
 # Test task for a backend developer
 
 ## Description
