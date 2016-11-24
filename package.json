@@ -27,7 +27,8 @@
     "passport-local-mongoose": "^4.0.0",
     "pug": "~2.0.0-beta6",
     "serve-favicon": "~2.3.0",
-    "sharp": "^0.16.2"
+    "sharp": "^0.16.2",
+    "bower": "*"
   },
   "devDependencies": {
     "chai": "^3.5.0",
