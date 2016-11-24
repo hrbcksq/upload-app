@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
   req.checkBody('username', `Username must be at least ${validationMinLength} characters`).isLength({min : validationMinLength})
   req.checkBody('password', 'Password field is required').notEmpty();
   req.checkBody('password', `Password must be at least ${validationMinLength} characters`).isLength({min : validationMinLength})
-  req.checkBody('password2', 'Password do not match').equals(password2);
+  req.checkBody('password', 'Password do not match').equals(password2);
 
   var errors = req.validationErrors();
 
